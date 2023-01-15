@@ -1,6 +1,8 @@
 {% extends 'form_app/base.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 
-{{form.as_p}}
+{% crispy form  %}
+
 {% endblock %}

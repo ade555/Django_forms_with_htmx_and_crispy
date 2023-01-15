@@ -1,4 +1,5 @@
 from django import forms
+from datetime import datetime
 
 COURSE_CHOICES =(
     (1, 'Law'),
@@ -8,5 +9,11 @@ COURSE_CHOICES =(
 class EnrollmentForm(forms.Form):
     name = forms.CharField()
     age = forms.IntegerField()
-    course = forms.ChoiceField(choices=COURSE_CHOICES)
-    dob = forms.DateField()
+    course = forms.ChoiceField(
+        choices=COURSE_CHOICES,
+        widget=forms.RadioSelect #change widget to radio select
+    )
+    dob = forms.DateField(
+        widget=forms.DateInput(attrs={  # change widget to date widget
+        'type': 'date', 
+        'max': datetime.now().date()})) #prevent users from entering a future date
