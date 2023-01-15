@@ -6,4 +6,4 @@ def form(request):
     context = {
         'form': EnrollmentForm() # pass form into the context
     }
-    return render(request, 'index.html', context) 
+    return render(request, "form_app/index.html", context)
